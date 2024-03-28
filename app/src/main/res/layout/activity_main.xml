@@ -16,7 +16,6 @@
         android:fontFamily="@font/nunito_regular"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
-        android:backgroundTint="@color/primary"
         app:layout_constraintBottom_toTopOf="@+id/txtPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

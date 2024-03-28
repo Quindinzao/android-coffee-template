@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="line">
-    <solid android:color="#00000000" /> <!-- Cor de fundo do campo de texto -->
-    <stroke
-        android:width="1dp"
-        android:color="#FF0000" /> <!-- Cor da borda vermelha -->
-</shape>
