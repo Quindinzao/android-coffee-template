@@ -1,5 +1,11 @@
 package com.example.coffeetemplate;
 
+import static android.text.InputType.TYPE_CLASS_TEXT;
+import static android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD;
+import static android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
@@ -7,6 +13,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,11 +32,16 @@ public class MainActivity extends AppCompatActivity {
         EditText txtEmail = findViewById(R.id.txtEmail);
         EditText txtPassword = findViewById(R.id.txtPassword);
 
+        ImageButton toggleButton = findViewById(R.id.toggleButton);
         Button btnSignIn = findViewById(R.id.btnSignIn);
         Button btnScreenCreateAccount = findViewById(R.id.btnScreenCreateAccount);
 
         textChanged(txtEmail);
         textChanged(txtPassword);
+
+        toggleButton.setOnClickListener(view -> {
+            isVisiblePassword(txtPassword, toggleButton);
+        });
 
         btnSignIn.setOnClickListener(view -> {
             if (!validateSignIn(txtEmail, txtPassword)) {
@@ -83,6 +95,19 @@ public class MainActivity extends AppCompatActivity {
         return matcher.matches();
     }
 
+    public void isVisiblePassword(EditText txtPassword, ImageButton toggleButton) {
+        if (txtPassword.getInputType() == TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
+            txtPassword.setInputType(TYPE_CLASS_TEXT | TYPE_TEXT_VARIATION_PASSWORD);
+            toggleButton.setImageResource(R.drawable.ic_visibility_off);
+        } else {
+            txtPassword.setInputType(TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            toggleButton.setImageResource(R.drawable.ic_visibility_on);
+        }
+
+        txtPassword.requestFocus();
+        txtPassword.setSelection(txtPassword.getText().length());
+    }
+
     public static boolean validatePassword(String pass) {
         // Verificar se a senha atende aos critérios desejados
         return pass != null && pass.length() >= 8 && // Pelo menos 8 caracteres de comprimento
@@ -103,8 +128,22 @@ public class MainActivity extends AppCompatActivity {
         } else if (!validatePassword(password)) {
             txtPassword.setText("");
             changeEditTextColor(txtPassword, R.color.error, "Please. insert a valid password!");
-        } if ("user@gmail".equals(email) && "Pass#123".equals(password)) {
+        } else if ("user@gmail".equals(email) && "Pass#123".equals(password)) {
             result = true;
+        } else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+            builder.setTitle("Error").setMessage("Invalid e-mail or password!");
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
         }
         return result;
     }
