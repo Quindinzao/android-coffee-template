@@ -32,6 +32,7 @@
         android:fontFamily="@font/nunito_regular"
         android:hint="Password"
         android:inputType="textPassword"
+        android:letterSpacing="0"
         app:layout_constraintBottom_toTopOf="@+id/btnSignIn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -86,4 +87,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSignIn"
         app:layout_constraintVertical_bias="0.5" />
+
+    <ImageButton
+        android:id="@+id/toggleButton"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="See Password"
+        android:src="@drawable/ic_visibility_off"
+        app:layout_constraintBottom_toBottomOf="@+id/txtPassword"
+        app:layout_constraintEnd_toEndOf="@+id/txtPassword"
+        app:layout_constraintTop_toTopOf="@+id/txtPassword" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
