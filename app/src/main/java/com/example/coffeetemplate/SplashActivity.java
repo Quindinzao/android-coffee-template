@@ -19,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
 
         // Usando um Handler para atrasar a transição para a próxima Activity
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
         }, SPLASH_DELAY);

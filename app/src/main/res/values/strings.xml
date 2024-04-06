@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">CoffeeTemplate</string>
     <string name="todo">TODO</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_home_fragment">Hello home fragment</string>
+    <string name="hello_lunch_fragment">Hello lunch fragment</string>
 </resources>

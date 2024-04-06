@@ -4,99 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_screen"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/txtEmail"
-        android:layout_width="379dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:fontFamily="@font/nunito_regular"
-        android:hint="E-mail"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/txtPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <EditText
-        android:id="@+id/txtPassword"
-        android:layout_width="379dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:fontFamily="@font/nunito_regular"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:letterSpacing="0"
-        app:layout_constraintBottom_toTopOf="@+id/btnSignIn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmail"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <Button
-        android:id="@+id/btnSignIn"
-        android:layout_width="379dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/rounded_button"
-        android:fontFamily="@font/nunito_black"
-        android:text="SIGN IN"
-        app:backgroundTint="#6D3B00"
-        app:layout_constraintBottom_toTopOf="@+id/btnScreenCreateAccount"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassword"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="104dp"
-        android:layout_height="104dp"
-        app:layout_constraintBottom_toTopOf="@+id/txtEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/logo" />
-
-    <Button
-        android:id="@+id/btnScreenCreateAccount"
+    <FrameLayout
+        android:id="@+id/frame_layout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="64dp"
-        android:backgroundTint="#00000000"
-        android:fontFamily="@font/nunito_bold"
-        android:text="Create an account"
-        android:textColor="#A56B32"
-        android:textSize="18sp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSignIn"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <ImageButton
-        android:id="@+id/toggleButton"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:contentDescription="See Password"
-        android:src="@drawable/ic_visibility_off"
-        app:layout_constraintBottom_toBottomOf="@+id/txtPassword"
-        app:layout_constraintEnd_toEndOf="@+id/txtPassword"
-        app:layout_constraintTop_toTopOf="@+id/txtPassword" />
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
