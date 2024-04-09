@@ -23,20 +23,19 @@ public class MainActivity extends AppCompatActivity {
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
-//            switch (item.getItemId()) {
-//                case R.id.home:
-//                    break;
-//                case R.id.lunch:
-//                    break;
-//            }
-
-            if (item.getItemId() == R.id.home) {
-                replaceFragment(new HomeFragment());
-            } else if (item.getItemId() == R.id.lunch) {
+            if (item.getItemId() == R.id.lunch) {
                 replaceFragment(new LunchFragment());
+            } else if (item.getItemId() == R.id.home) {
+                replaceFragment(new HomeFragment());
+            } else if (item.getItemId() == R.id.drink) {
+                replaceFragment(new DrinkFragment());
             }
 
             return true;
+        });
+
+        binding.homeButton.setOnClickListener(item -> {
+            replaceFragment(new HomeFragment());
         });
     }
 

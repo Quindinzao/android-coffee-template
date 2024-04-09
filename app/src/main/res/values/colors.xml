@@ -3,6 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#6D3B00</color>
+    <color name="secondary">#ff9d19</color>
     <color name="error">#C90000</color>
     <color name="defaultEditText">#4D4852</color>
 </resources>
