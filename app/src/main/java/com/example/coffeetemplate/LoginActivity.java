@@ -5,8 +5,10 @@ import static android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD;
 import static android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.text.Editable;
@@ -29,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("coffee_user_email", Context.MODE_PRIVATE);
+
         EditText txtEmail = findViewById(R.id.txtEmail);
         EditText txtPassword = findViewById(R.id.txtPassword);
 
@@ -47,6 +51,10 @@ public class LoginActivity extends AppCompatActivity {
             if (!validateSignIn(txtEmail, txtPassword)) {
                 Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
             } else {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("coffee_user_email", txtEmail.toString().trim());
+                editor.apply();
+
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }
