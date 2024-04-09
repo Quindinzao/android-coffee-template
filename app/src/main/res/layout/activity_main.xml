@@ -7,6 +7,14 @@
     android:background="@drawable/background_screen"
     tools:context=".MainActivity">
 
+    <include
+        layout="@layout/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <FrameLayout
         android:id="@+id/frame_layout"
         android:layout_width="0dp"
@@ -20,7 +28,7 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="#4d381c"
+        android:background="@color/brown_900"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/primary"
+        android:backgroundTint="@color/brown_700"
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_baseline_home_24"
         app:layout_constraintBottom_toBottomOf="@+id/bottomNavigationView"

@@ -48,7 +48,7 @@
         android:background="@drawable/rounded_button"
         android:fontFamily="@font/nunito_black"
         android:text="@string/sign_in"
-        app:backgroundTint="#6D3B00"
+        app:backgroundTint="@color/brown_700"
         app:layout_constraintBottom_toTopOf="@+id/btnScreenCreateAccount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
