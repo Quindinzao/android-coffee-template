@@ -1,14 +1,15 @@
 package com.example.coffeetemplate;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+@SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
 
     private static final long SPLASH_DELAY = 2000;
@@ -33,7 +34,6 @@ public class SplashActivity extends AppCompatActivity {
             } else {
                 intent = new Intent(SplashActivity.this, MainActivity.class);
             }
-            Toast.makeText(this, "My login: " + myLogin, Toast.LENGTH_SHORT).show();
             startActivity(intent);
             finish();
         }, SPLASH_DELAY);

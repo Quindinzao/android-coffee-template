@@ -3,11 +3,17 @@
     <string name="todo">TODO</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_home_fragment">Hello home fragment</string>
-    <string name="hello_lunch_fragment">Hello lunch fragment</string>
+    <string name="hello_food_fragment">Hello food fragment</string>
     <string name="hello_drink_fragment">Hello drink fragment</string>
     <string name="see_password">See Password</string>
     <string name="create_an_account">Create an account</string>
     <string name="sign_in">SIGN IN</string>
     <string name="password">Password</string>
     <string name="e_mail">E-mail</string>
+    <string name="name">Name</string>
+    <string name="create_account">CREATE ACCOUNT</string>
+    <string name="already_have_an_account_click_here">Already have an account? Click here!</string>
+    <string name="food">Food</string>
+    <string name="drink">Drink</string>
+    <string name="home">Home</string>
 </resources>

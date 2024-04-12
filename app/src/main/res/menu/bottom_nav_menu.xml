@@ -4,8 +4,8 @@
 
     <item
         android:title=""
-        android:icon="@drawable/ic_baseline_lunch_dining_24"
-        android:id="@+id/lunch" />
+        android:icon="@drawable/ic_baseline_food_24"
+        android:id="@+id/food" />
     <item android:title="" android:id="@+id/home" />
     <item
         android:title=""

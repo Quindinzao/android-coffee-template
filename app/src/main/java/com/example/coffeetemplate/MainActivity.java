@@ -1,6 +1,7 @@
 package com.example.coffeetemplate;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -20,13 +21,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         replaceFragment(new HomeFragment());
+        TextView headerText = findViewById(R.id.headerText);
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
-            if (item.getItemId() == R.id.lunch) {
-                replaceFragment(new LunchFragment());
+            if (item.getItemId() == R.id.food) {
+                replaceFragment(new FoodFragment());
+                headerText.setText(R.string.food);
             } else if (item.getItemId() == R.id.drink) {
                 replaceFragment(new DrinkFragment());
+                headerText.setText(R.string.drink);
             }
 
             return true;
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding.homeButton.setOnClickListener(item -> {
             replaceFragment(new HomeFragment());
+            headerText.setText(R.string.home);
         });
     }
 
