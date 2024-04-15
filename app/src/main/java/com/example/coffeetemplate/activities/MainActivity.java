@@ -1,4 +1,4 @@
-package com.example.coffeetemplate;
+package com.example.coffeetemplate.activities;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -8,7 +8,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.coffeetemplate.R;
 import com.example.coffeetemplate.databinding.ActivityMainBinding;
+import com.example.coffeetemplate.fragments.DrinkFragment;
+import com.example.coffeetemplate.fragments.FoodFragment;
+import com.example.coffeetemplate.fragments.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 

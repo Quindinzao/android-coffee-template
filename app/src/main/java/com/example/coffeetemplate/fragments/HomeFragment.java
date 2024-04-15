@@ -1,4 +1,4 @@
-package com.example.coffeetemplate;
+package com.example.coffeetemplate.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,13 +6,22 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.coffeetemplate.R;
+import com.example.coffeetemplate.adapters.ListItemAdapter;
+import com.example.coffeetemplate.models.ListItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FoodFragment#newInstance} factory method to
+ * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FoodFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,7 +32,7 @@ public class FoodFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FoodFragment() {
+    public HomeFragment() {
         // Required empty public constructor
     }
 
@@ -33,11 +42,11 @@ public class FoodFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FoodFragment.
+     * @return A new instance of fragment HomeFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FoodFragment newInstance(String param1, String param2) {
-        FoodFragment fragment = new FoodFragment();
+    public static HomeFragment newInstance(String param1, String param2) {
+        HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -57,7 +66,23 @@ public class FoodFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_food, container, false);
+
+        // Inflar o layout do Fragment
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        // Inicializar o RecyclerView
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        // Crie uma lista de itens
+        List<ListItem> itemList = new ArrayList<>();
+        itemList.add(new ListItem("Item 1", R.drawable.food));
+        itemList.add(new ListItem("Item 2", R.drawable.logo));
+
+        // Crie um novo adaptador e configure-o no RecyclerView
+        ListItemAdapter adapter = new ListItemAdapter(itemList);
+        recyclerView.setAdapter(adapter);
+
+        return view;
     }
 }

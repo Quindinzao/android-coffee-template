@@ -16,4 +16,5 @@
     <string name="food">Food</string>
     <string name="drink">Drink</string>
     <string name="home">Home</string>
+    <string name="item">Item</string>
 </resources>

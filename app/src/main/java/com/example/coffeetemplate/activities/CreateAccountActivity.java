@@ -1,9 +1,11 @@
-package com.example.coffeetemplate;
+package com.example.coffeetemplate.activities;
 
 import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.coffeetemplate.R;
 
 public class CreateAccountActivity extends AppCompatActivity {
 

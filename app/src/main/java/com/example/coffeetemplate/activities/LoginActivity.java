@@ -1,4 +1,4 @@
-package com.example.coffeetemplate;
+package com.example.coffeetemplate.activities;
 
 import static android.text.InputType.TYPE_CLASS_TEXT;
 import static android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD;
@@ -19,6 +19,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.coffeetemplate.R;
 
 import java.util.Objects;
 import java.util.regex.Matcher;
@@ -79,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (s.length() > 0) {
-                    changeEditTextColor(editText, R.color.defaultEditText, "");
+                    changeEditTextColor(editText, R.color.default_edit_text, "");
                 } else {
                     changeEditTextColor(editText, R.color.error, "This field is required!");
                 }

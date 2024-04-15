@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_screen"
-    tools:context=".CreateAccountActivity">
+    tools:context=".activities.CreateAccountActivity">
 
     <EditText
         android:id="@+id/txtName"
