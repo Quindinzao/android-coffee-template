@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,52 +17,9 @@ import com.example.coffeetemplate.models.ListItem;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class HomeFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public HomeFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private List<ListItem> itemList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,19 +28,33 @@ public class HomeFragment extends Fragment {
         // Inflar o layout do Fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        // Inicializar o RecyclerView
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
         // Crie uma lista de itens
-        List<ListItem> itemList = new ArrayList<>();
+        itemList = new ArrayList<>();
         itemList.add(new ListItem("Item 1", R.drawable.food));
         itemList.add(new ListItem("Item 2", R.drawable.logo));
 
-        // Crie um novo adaptador e configure-o no RecyclerView
-        ListItemAdapter adapter = new ListItemAdapter(itemList);
-        recyclerView.setAdapter(adapter);
+        // Configurar o RecyclerView
+        setupRecyclerView(view);
 
         return view;
+    }
+
+    // Método para inicializar e configurar o RecyclerView
+    private void setupRecyclerView(View view) {
+        // Inicializa o RecyclerView e define o LayoutManager e o Adapter
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        // Crie um novo adaptador e configure-o no RecyclerView
+        ListItemAdapter adapter = new ListItemAdapter(itemList);
+
+        // Define o ouvinte de clique no adapter
+        adapter.setOnItemClickListener(item -> {
+            // Exibe um Toast com o nome do item clicado
+            Toast.makeText(getContext(), "Item clicado: " + item.getTitle(), Toast.LENGTH_SHORT).show();
+        });
+
+        // Define o adapter no RecyclerView
+        recyclerView.setAdapter(adapter);
     }
 }
