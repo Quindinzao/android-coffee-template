@@ -17,4 +17,5 @@
     <string name="drink">Drink</string>
     <string name="home">Home</string>
     <string name="item">Item</string>
+    <string name="dollar">$</string>
 </resources>
