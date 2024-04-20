@@ -1,6 +1,7 @@
 package com.example.coffeetemplate.activities;
 
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,10 +26,18 @@ public class DetailedItemActivity extends AppCompatActivity {
         TextView txtItemDescription = findViewById(R.id.txtItemDescription);
         TextView txtItemPrice = findViewById(R.id.txtItemPrice);
         ImageView imgItemImage = findViewById(R.id.imgItemImage);
+        ImageButton arrowBack = findViewById(R.id.imgArrowBack);
 
         txtItemTitle.setText(itemTitle);
         txtItemDescription.setText(itemDescription);
         txtItemPrice.setText(getText(R.string.dollar) + itemPrice);
-//        imgItemImage.setImageResource(Integer.getInteger(itemImageResource));
+
+        // Converte a string de recurso de imagem de volta para int e define a imagem no ImageView
+        int resourceId = Integer.parseInt(itemImageResource);
+        imgItemImage.setImageResource(resourceId);
+
+        arrowBack.setOnClickListener(view -> {
+            finish();
+        });
     }
 }
